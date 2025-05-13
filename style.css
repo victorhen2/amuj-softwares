@@ -1,0 +1,1403 @@
+/* Basic Reset */
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Roboto Serif', serif;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    line-height: 1;
+}
+/* Header Styling */
+header {
+    background-color: #0b24377e; /* A dark blue-grey background */
+    color: #030609; /* Light grey text color */
+    padding: 15px 20px; /* Increased vertical padding for more space */
+    display: flex;
+    justify-content: space-between; /* Space out the login/signup and navigation */
+    align-items: center; /* Vertically align items in the header */
+    margin: 1px 2px;
+    border-radius: 10px;
+    
+}
+.logo img {
+    height: 140px;
+    max-width: 130px; /* Adjust the height of your logo as needed */
+    /* You can add other logo styling here, like max-width */
+    border: 10px;
+  }
+header nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Enable flexbox for alignment */
+    align-items: center; /* Vertically align items in the nav bar */
+   
+
+  }
+  
+  header nav ul li {
+    margin-right: 80px; /* Add spacing between navigation items */
+  }
+  
+  header nav ul li:last-child {
+    
+    margin-left: auto; /* Push the last item (Login/Sign Up) to the right */
+  }
+  
+  .login-signup {
+    margin-left: auto; /* Push the login/signup to the right */
+  }
+
+
+nav {
+    border: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 15px;
+    /* Add these lines to center the content */
+    display: flex;
+    justify-content: center;
+}
+    
+nav ul {
+    display: flex;
+    margin: 0; /* Reset default margin */
+    padding: 0;
+    list-style: none;
+}
+    
+    nav ul li {
+        margin-right: 25px;
+    }
+    nav ul li a:hover {
+        color: #7e695e;
+        background-color: rgba(244, 178, 57, 0.478);
+        padding: 5px 10px; /* Adjust padding to include the background */
+        border-radius: 10px;
+    }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A common and readable sans-serif font stack */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    line-height: 1;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 5px 0;
+    font-family: 'Montserrat', sans-serif; /* A modern-looking sans-serif font - you might need to include this font */
+    font-size: 1.1em; /* Slightly larger font size */
+    letter-spacing: 0.5px; /* Add a little spacing between letters */
+}
+.hero {
+    display: flex; /* Arrange content side by side (initially) */
+    align-items: last baseline; /* Vertically align items in the hero section */
+    padding: 150px 20px; /* Add some padding around the hero section */
+    background-color: #0b0a0a; /* A light background color for the section */
+    
+  }
+  
+  .hero-content {
+    flex: 1; /* Take up available space */
+    padding-right: 40px; /* Add some spacing between text and video */
+  }
+  
+  .hero-content h1 {
+    font-family: 'Roboto Serif', serif;
+    font-size: 2.4em; /* Adjust as needed */
+    margin-bottom: 1px;
+    color: #b81f4df7; /* Example heading color */
+    border-radius: 15px;
+    margin: 5px;
+  }
+  
+  .hero-content p {
+    font-family: 'Roboto Serif', serif;
+    font-size: 1.3em; /* Adjust as needed */
+    line-height: 1.6;
+    color: #0b0a0a; /* Example paragraph color */
+    margin-bottom: 30px;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #064d99; /* Example button background color */
+    color: #fff; /* Example button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+ 
+  
+  .why-choose-us {
+    font-family: 'Roboto Serif', serif;
+    padding: 60px 20px; /* Add vertical padding to the section */
+    background-color: #fff; /* A white background for contrast */
+    text-align: center; /* Center the heading */
+    margin: 30px 30px;
+    border-radius: 33px;
+  }
+  
+  .why-choose-us .container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding within the container */
+  }
+  
+  .why-choose-us h2 {
+    font-family: 'Roboto Serif', serif;
+    font-size: 2em; /* Adjust as needed */
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .why-choose-us .reasons {
+    display: grid; /* Use CSS Grid for a responsive layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Create responsive columns */
+    gap: 30px; /* Spacing between the reason blocks */
+    text-align: left; /* Align text within each reason to the left */
+  }
+  
+  .why-choose-us .reason {
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional: add a subtle border */
+    border-radius: 5px;
+  }
+  
+  .why-choose-us .reason img {
+    max-width: 50px; /* Adjust icon size */
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .why-choose-us .reason h3 {
+    font-family: 'Roboto Serif', serif;
+    font-size: 1.3em;
+    color: #007bff; /* Example color for the titles */
+    margin-bottom: 10px;
+  }
+  
+  .why-choose-us .reason p {
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  /* Basic styling for the container (if you don't have it already) */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /*services page styling animations*/
+
+  /* Styles for the services page */
+.services-page .hero-secondary {
+    background-color: #b3b0b0;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 15px 20px;
+    border-radius: 15px; 
+    background-image: url(images/logoo.avif);
+
+  }
+  
+  .services-page .hero-secondary h1 {
+    font-size: 1.8em;
+    color: #302f2f;
+    margin-bottom: 15px;
+  }
+  
+  .services-page .hero-secondary p {
+    font-size: 1.1em;
+    color: #0b0a0a;
+  }
+  
+  .services-page .service-detail {
+    padding: 60px 20px;
+  }
+  
+  .services-page .service-detail .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .services-page .service-overview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .services-page .service-overview.reversed {
+    flex-direction: row-reverse;
+  }
+  
+  .services-page .service-overview .image-column {
+    flex: 1 1 400px;
+  }
+  
+  .services-page .service-overview .image-column img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .services-page .service-overview .text-column {
+    flex: 1 1 400px;
+  }
+  
+  .services-page .service-overview h2 {
+    font-size: 1.7em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .services-page .service-overview h3 {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .services-page .service-overview p {
+    color: #555;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  .services-page .service-overview ul,
+  .services-page .service-overview ol {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .services-page .service-overview ol {
+    list-style-type: decimal;
+  }
+  
+  .services-page .service-overview li {
+    margin-bottom: 10px;
+  }
+  
+  .services-page .service-overview .button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: #f1eaea;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .services-page .service-overview .button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .services-page .service-overview {
+      flex-direction: column;
+    }
+  
+    .services-page .service-overview.reversed {
+      flex-direction: column;
+    }
+  
+    .services-page .service-overview .image-column {
+      margin-bottom: 30px;
+    }
+  }
+
+  
+  /* Styles for form sections */
+.login-page .form-section,
+.signup-page .form-section {
+    font-family: 'Roboto Serif', serif;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px); /* Adjust based on header/footer height */
+}
+
+.login-page .container,
+.signup-page .container {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-page h1,
+.signup-page h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensure padding and border are inside the element's width/height */
+  font-size: 1em;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-section button[type="submit"] {
+    font-family: 'Roboto Serif', serif;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.form-section button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.signup-link,
+.login-link {
+    font-family: 'Roboto Serif', serif;
+  text-align: center;
+  margin-top: 20px;
+  color: #555;
+}
+
+.signup-link a,
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  text-decoration: underline;
+}
+/* Styles for the booking page */
+.booking-page .hero-secondary {
+    font-family: 'Roboto Serif', serif;
+    background-color: #f2f2f2;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .booking-page .hero-secondary h1 {
+    font-family: 'Roboto Serif', serif;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .booking-page .hero-secondary p {
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .booking-page .booking-form-section {
+    padding: 60px 20px;
+  }
+  
+  .booking-page .booking-form-section .container {
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-page .booking-form-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .booking-page .booking-form-section .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .booking-page .booking-form-section .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .booking-page .booking-form-section .form-group input[type="text"],
+  .booking-page .booking-form-section .form-group input[type="email"],
+  .booking-page .booking-form-section .form-group select,
+  .booking-page .booking-form-section .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+  }
+  
+  .booking-page .booking-form-section .form-group input:focus,
+  .booking-page .booking-form-section .form-group select:focus,
+  .booking-page .booking-form-section .form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .booking-page .booking-form-section .form-group select {
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23333" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+  }
+  
+  .booking-page .booking-form-section button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .booking-page .booking-form-section button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .booking-page .booking-form-section .disclaimer {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+    text-align: center;
+  }
+  /* Styles for the careers page */
+
+  
+ 
+  /* Styles for the portfolio page */
+.portfolio-page .hero-secondary {
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .portfolio-page .hero-secondary h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .portfolio-page .hero-secondary p {
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .portfolio-page .portfolio-grid {
+    padding: 60px 20px;
+  }
+  
+  .portfolio-page .portfolio-grid .container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+  }
+  
+  .portfolio-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    display: block; /* Prevent extra space below image */
+    border-bottom: 1px solid #eee;
+  }
+  
+  .portfolio-item .item-details {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .portfolio-item h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-item p {
+    color: #777;
+    font-size: 0.9em;
+  }
+  
+  .portfolio-item a.view-project {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .portfolio-item a.view-project:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+/* ... other CSS rules ... */
+.appearing-text-container {
+    /* Styles for the container (optional, e.g., text-align: center;) */
+    display: inline-block; /* Or block, flex, etc., depending on your layout */
+    overflow: hidden; /* Important: Clips the words that are initially above the container */
+  }
+  
+  .appearing-text {
+    display: inline-block; /* Keeps words in a line if they fit */
+    opacity: 0; /* Initially invisible */
+    transform: translateY(-20px); /* Start a little above their final position */
+    animation: slideInFromTop 1s ease-out forwards; /* Apply the animation */
+  }
+  
+  @keyframes slideInFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  .our-services {
+    padding: 60px 20px;
+    background-color: #0b0a0a; /* Optional background color */
+    margin: 5px 0px;
+    border-radius: 2px;
+   
+  }
+  
+  .our-services .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .our-services h2 {
+    font-size: 2.4em;
+    color: #b89826;
+    margin-bottom: 20px;
+  }
+  
+  .our-services .section-description {
+    color: #babf2d;
+    margin-bottom: 40px;
+    font-size: 1.6em;
+  }
+  
+  .our-services .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .our-services .service-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .our-services .service-item img {
+    max-width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .our-services .service-item h3 {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .our-services .service-item p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+  
+  .our-services .service-item .learn-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .our-services .service-item .learn-more:hover {
+    text-decoration: underline;
+  }
+  
+  .our-services .view-all-services {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .our-journey {
+    padding: 60px 20px;
+    background-color: #fff; /* Or a light contrasting color */
+    background-image: url(images/Screenshot\ 2025-04-23\ 171455.jpg);
+    border-radius: 30px; /* Optional: Add rounded corners to the border */
+    margin: 20px 260px; /* Optional: Add some top and bottom margin for spacing */
+  }
+  
+  .our-journey .container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .our-journey h2 {
+    font-size: 1.8em;
+    color: #e4ebeb;
+    margin-bottom: 15px;
+  }
+  
+  .our-journey .section-subtitle {
+    color: #e8fbf9;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+  }
+  
+  .our-journey .journey-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+    gap: 40px;
+    align-items: center; /* Vertically align text and image */
+    justify-content: center; /* Center content on larger screens */
+  }
+  
+  .our-journey .journey-text {
+    flex: 1 1 400px; /* Minimum width of 400px, grows to take available space */
+    text-align: center;
+    line-height: 1.5;
+    color: #c3dbda;
+  }
+  
+  .our-journey .journey-text p {
+    margin-bottom: 20px;
+  }
+  
+  .our-journey .journey-image {
+    flex: 0 1 300px; /* Fixed width of 300px, doesn't grow much */
+    border-radius: 8px;
+    overflow: hidden; /* To contain image within rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .our-journey .journey-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .our-journey .journey-content {
+      flex-direction: column; /* Stack text and image on smaller screens */
+      text-align: center;
+    }
+  
+    .our-journey .journey-text {
+      text-align: left; /* Reset text alignment for smaller screens */
+    }
+  
+    .our-journey .journey-image {
+      width: 80%;
+      margin: 0 auto;
+      border: 7px;
+      border-color:rgb(140, 22, 114) ;
+    }
+  }
+  .meet-the-team {
+    padding: 60px 20px;
+    background-color: #afa2a2; /* Optional background color */
+    text-align: center;
+    background-image: url(images/logoo.avif);
+    margin: 20px 20px;
+    border-radius: 6px;
+  }
+  
+  .meet-the-team .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+  }
+  
+  .meet-the-team h2 {
+    font-size: 1.7em;
+    color: #0e3a71;
+    margin-bottom: 15px;
+  }
+  
+  .meet-the-team .section-subtitle {
+    color: #2885bb;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .meet-the-team .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .meet-the-team .team-member {
+    background-color: #d8dbe8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .meet-the-team .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensure the image fills the circle without distortion */
+    margin-bottom: 15px;
+  }
+  
+  .meet-the-team .team-member h3 {
+    font-size: 1.4em;
+    color: #0d2239;
+    margin-bottom: 5px;
+  }
+  
+  .meet-the-team .team-member .team-role {
+    color: #191438;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+  
+  .meet-the-team .team-member .social-links {
+    margin-top: 15px;
+  }
+  
+  .meet-the-team .team-member .social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  
+  .meet-the-team .team-member .social-links a:hover {
+    color: #0056b3;
+  }
+  .faq-section {
+    padding: 60px 20px;
+    background-color: #fff; /* Optional background color */
+    text-align: center;
+    background-image: url(images/no\ 2.jpg);
+    margin: 30px 30px;
+    border-radius: 33px;
+  }
+  
+  .faq-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .faq-section h2 {
+    font-size: 1.7em;
+    color: #f5efef;
+    margin-bottom: 15px;
+  }
+  
+  .faq-section .section-subtitle {
+    color: #f3eeee;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .faq-section .faq-list {
+    margin-top: 30px;
+  }
+  
+  .faq-section .faq-item {
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden; /* To contain the answer within the border */
+  }
+  
+  .faq-section .faq-question {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .faq-section .faq-question:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .faq-section .faq-question i {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  .faq-section .faq-answer {
+    padding: 20px;
+    background-color: #fff;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+    display: none; /* Initially hide the answer */
+  }
+  
+  .faq-section .faq-item.open .faq-answer {
+    display: block; /* Show the answer when the item has the 'open' class */
+  }
+  
+  .faq-section .faq-item.open .faq-question i {
+    transform: rotate(45deg); /* Change plus to a cross when open */
+  }
+  .website-packages {
+    padding: 60px 20px;
+    background-color: #c5c4c0; /* Optional background color */
+    text-align: center;
+    border-top: #0e3a71;
+    border-radius: 3px;
+    margin: 5px 0px;
+
+  }
+  
+  .website-packages .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .website-packages h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .website-packages .price-range {
+    color: #007bff;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .website-packages .price-range .from-price,
+  .website-packages .price-range .to-price {
+    color: #333;
+  }
+  
+  .website-packages .section-subtitle {
+    color: #777;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .website-packages .package-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .website-packages .package-type {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .website-packages .package-type h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .website-packages .package-type p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .website-packages .package-type .price-indicator {
+    font-size: 1.1em;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .website-packages .package-type .price-indicator .price {
+    color: #333;
+  }
+  
+  .website-packages .package-note {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .customer-reviews {
+    padding: 60px 20px;
+    background-color: #fff; /* Optional background color */
+    text-align: center;
+    background-image: url(images/no\ 1.avif);
+    margin: 30px 30px;
+    border-radius: 33px;
+  }
+  
+  .customer-reviews .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .customer-reviews h2 {
+    font-size: 2.2em;
+    color: #eff1f1;
+    margin-bottom: 15px;
+  }
+  
+  .customer-reviews .section-subtitle {
+    color: #fdfafa;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .customer-reviews .review-slider {
+    margin-top: 30px;
+    overflow-x: auto; /* Basic horizontal scrolling for multiple reviews */
+    white-space: nowrap; /* Prevent reviews from wrapping */
+    padding-bottom: 20px; /* Space for potential scrollbar */
+  }
+  
+  .customer-reviews .review-slide {
+    display: inline-block;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-right: 20px; /* Spacing between reviews */
+    text-align: left;
+    min-width: 80%; /* Adjust as needed for minimum width of each review */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .customer-reviews .review-slide:last-child {
+    margin-right: 0; /* Remove margin from the last review */
+  }
+  
+  .customer-reviews .review-content p {
+    color: #1f1a1a;
+    font-size: 1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .customer-reviews .reviewer {
+    font-style: italic;
+    color: #0c0404;
+    font-size: 0.9em;
+  }
+  
+  .customer-reviews .reviewer .name {
+    font-weight: bold;
+    color: #050513;
+    font-style: normal;
+    margin-right: 5px;
+  }
+  .office-location {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Optional background color */
+    text-align: center;
+  }
+  
+  .office-location .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .office-location h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .office-location .section-subtitle {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+  }
+  
+  .office-location .map-container {
+    margin-bottom: 20px;
+  }
+  
+  .office-location .address {
+    font-size: 1.1em;
+    color: #555;
+  }
+  .our-clients {
+    padding: 60px 20px;
+    background-color: #fff; /* Optional background color */
+    text-align: center;
+  }
+  
+  .our-clients .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .our-clients h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .our-clients .section-subtitle {
+    color: #777;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .our-clients .clients-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust minmax as needed */
+    gap: 30px;
+    margin-top: 30px;
+    align-items: center; /* Vertically align logos */
+    justify-items: center; /* Horizontally align logos within their grid cell */
+  }
+  
+  .our-clients .client-logo img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.7; /* Optional: Slightly fade the logos */
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .our-clients .client-logo img:hover {
+    opacity: 1; /* Optional: Make logos fully opaque on hover */
+  }
+  .booking-page .hero-secondary {
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .booking-page .hero-secondary h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .booking-page .hero-secondary p {
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .booking-form-section {
+    padding: 40px 20px;
+  }
+  
+  .booking-form-section .container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form-section h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .booking-form-section .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .booking-form-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .booking-form-section input[type="text"],
+  .booking-form-section input[type="email"],
+  .booking-form-section input[type="tel"],
+  .booking-form-section input[type="number"],
+  .booking-form-section select,
+  .booking-form-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box; /* Prevent padding from increasing element width */
+  }
+  
+  .booking-form-section textarea {
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .booking-form-section button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-form-section button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  .intro-section {
+    display: flex; /* Arrange logo and text side-by-side */
+    align-items: center; /* Vertically align logo and text */
+    width: 100%; /* Full width for large screens */
+    padding: 80px; /* Adjust padding as needed for spacing */
+    box-sizing: content-box; /* Ensure padding doesn't affect the overall width */
+    position: relative; /* For positioning the vertical line */
+    background-image: url(images/tuti.jpg);
+    border-radius: 11px;
+    margin: 2px;
+}
+
+.logo-container {
+    width: 150px; /* Adjust the size of the logo container */
+    height: 160px; /* Make it a circle */
+    border-radius: 50%; /* Creates the circular shape */
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
+    align-items: center; /* Center the logo vertically */
+    overflow: hidden; /* Ensure the image stays within the circle */
+    margin-right: 30px; /* Space between logo and text */
+  
+}
+
+.logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* Prevent extra space below the image */
+}
+
+.intro-text {
+    flex-grow: 1; /* Allows the text to take up remaining space */
+}
+
+.intro-text h1 {
+    font-size: 3em; /* Adjust as needed */
+    margin-bottom: 10px;
+    color: #d3e436; /* Adjust text color */
+}
+
+.intro-text p {
+    font-size: 1.8em; /* Adjust as needed */
+    color: #f3e229; /* Adjust text color */
+    margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+.request-quote-button {
+    display: inline-block; /* Allows for padding and width/height */
+    background-color: #eddc5a; /* Example button background color */
+    color: rgb(12, 34, 65);
+    padding: 12px 24px;
+    text-decoration: none; /* Remove underline from the link */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 1em;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.request-quote-button:hover {
+    background-color: #f1df37; /* Darker shade on hover */
+}
+
+.vertical-line {
+    position: absolute;
+    top: 20%; /* Adjust vertical position */
+    bottom: 20%; /* Adjust vertical position */
+    left: calc(150px + 30px + 20px); /* Position after the logo and spacing - adjust 20px as needed */
+    width: 2px; /* Thickness of the line */
+    background-color: #e5d8ea; /* Color of the line */
+}
+
+/* Media query for larger screens */
+@media (max-width: 768px) {
+    .intro-section {
+        flex-direction: column; /* Stack logo and text on smaller screens */
+        text-align: center;
+    }
+
+    .logo-container {
+        margin: 0 auto 20px; /* Center logo and add space below */
+    }
+
+    .intro-text {
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    .vertical-line {
+        display: none; /* Hide the vertical line on smaller screens */
+    }
+
+    .intro-text p {
+        text-align: left; /* Reset paragraph alignment */
+        margin-bottom: 15px; /* Adjust spacing */
+    }
+
+    .request-quote-button {
+        display: block; /* Make button full width on smaller screens */
+        margin: 0 auto; /* Center the button */
+    }
+}
+#cookie-banner {
+  background-color: darkblue;
+  color: white;
+  position: fixed;
+  bottom: -60px; /* Start below the viewport */
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  text-align: center;
+  z-index: 1000;
+  font-family: inherit;
+  font-size: inherit;
+  transition: bottom 0.3s ease-in-out; /* Add transition for smooth animation */
+}
+
+#cookie-banner.show {
+  bottom: 0; /* Slide up into view */
+}
+
+#cookie-banner p {
+  margin: 0 0 10px;
+}
+
+#cookie-banner a {
+  color: lightblue;
+  text-decoration: underline;
+}
+
+#cookie-banner button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+#cookie-banner button#decline-cookies {
+  background-color: #d9534f;
+}
