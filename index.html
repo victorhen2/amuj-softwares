@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amuj Softwares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <script src="cookie-banner.js" defer></script> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button class="chat-toggle-button" id="chatToggleButton">
+        <i class="fas fa-comments"></i>
+    </button>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>Amuj Support Chat</span>
+            <button class="close-btn" id="closeChatButton">×</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-message">Hi there! How can we help you today?</div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendMessageButton"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <nav class="main-nav-top">
+        <div class="main-nav-left">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="Amuj Softwares Logo">
+                <span>Amuj Softwares</span>
+            </a>
+        </div>
+        <div class="main-nav-right">
+            <a href="#our-journey" class="nav-button about-us-button">About Us</a>
+            <div class="nav-item-dropdown">
+                <button class="dropdown-toggle">All Services <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-category">
+                        <span class="category-header">Services</span>
+                        <a href="services.html#logo-design">Logo Design</a>
+                        <a href="services.html#web-development">Web Development</a>
+                        <a href="services.html#branding">Branding</a>
+                        <a href="services.html">View All Services</a>
+                    </div>
+                    <div class="dropdown-category">
+                        <span class="category-header">Company</span>
+                        <a href="index.html">Home</a>
+                        <a href="#our-journey">Our Journey</a>
+                        <a href="#meet-the-team">Meet the Team</a>
+                        <a href="#our-clients">Our Clients</a>
+                        <a href="contacts.html">Contact Us</a>
+                    </div>
+                    <div class="dropdown-category">
+                        <span class="category-header">Portfolio</span>
+                        <a href="portfolio.html">Web design & dev</a>
+                        <a href="portfolio.html">Graphics design</a>
+                        <a href="portfolio.html">Video & Animation</a>
+                        <a href="portfolio.html">Branding</a>
+                    </div>
+                    <div class="dropdown-category">
+                        <span class="category-header">Resources</span>
+                        <a href="#faq-section">FAQs</a>
+                        <a href="#">Blog (Coming Soon)</a>
+                    </div>
+                    <div class="dropdown-category single-links">
+                        <a href="booking.html">Booking</a>
+                        <a href="web-hosting.html">Hosting Services</a>
+                        <a href="contacts.html">Contact Us</a>
+                        <a href="login.html">Login/Sign Up</a>
+                    </div>
+                </div>
+            </div>
+             <a href="login.html" class="nav-button login-button">Log In</a>
+            <a href="signup.html" class="nav-button signup-button">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="hero-section-new">
+        <div class="hero-left-content">
+            <h1>Unlock Your Business <br>Potential with <br>Amuj Softwares</h1>
+            <p>From captivating web designs and robust development to impactful branding and strategic digital marketing, we craft tailored solutions that drive growth and connect you with your audience.</p>
+            <a href="booking.html" class="button hero-button">Let's Discuss</a>
+        </div>
+        <div class="hero-right-visual">
+            <img src="images/kaali.jpg" alt="Amuj Softwares Portfolio Showcase" class="hero-showcase-image">
+        </div>
+    </section>
+
+    <section class="our-services-new" id="our-services">
+        <div class="container">
+            <h2>Our Core Services</h2>
+            <p class="section-description">We blend design expertise with technical prowess to deliver exceptional digital solutions.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-palette service-icon"></i>
+                    <h3>Custom Web Design</h3>
+                    <p>Creating visually stunning, responsive, and user-friendly websites tailored to your brand identity.</p>
+                    <a href="services.html#web-design" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code service-icon"></i>
+                    <h3>Web Development</h3>
+                    <p>Building robust, scalable, and secure web applications from concept to deployment.</p>
+                    <a href="services.html#web-development" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lightbulb service-icon"></i>
+                    <h3>Brand Identity & Logo</h3>
+                    <p>Developing unique brand strategies and memorable logos that resonate with your target audience.</p>
+                    <a href="services.html#branding" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>Digital Marketing Strategy</h3>
+                    <p>Crafting effective online strategies to increase your visibility, traffic, and conversions.</p>
+                    <a href="services.html#digital-marketing" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h3>Cybersecurity Solutions</h3>
+                    <p>Protecting your digital assets with advanced security measures and penetration testing.</p>
+                    <a href="services.html#cybersecurity" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-server service-icon"></i>
+                    <h3>Web Hosting & Maintenance</h3>
+                    <p>Reliable hosting services and ongoing maintenance to keep your website fast and secure.</p>
+                    <a href="services.html#hosting" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="view-all-services">
+                <a href="services.html" class="button">Explore All Our Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="website-showcase-section">
+        <div class="background-shapes">
+            <div class="shape-one"></div>
+            <div class="shape-two"></div>
+        </div>
+
+        <div class="showcase-content-wrapper">
+            <div class="left-content">
+                <h2>At Amujsoftwares <br>your envisioned desires <br>are transformed to unimaginable<br> reality </h2>
+                <div class="watch-how">
+                    <span class="play-button-icon">
+                        <i class="fas fa-play-circle"></i> </span>
+                    <p>Watch how to get you a website</p>
+                </div>
+                <div class="demo-websites-info">
+                    <span class="number">20+</span>
+                    <p>Businesses get online with<br> amuj built web Apps<br> to get started.</p>
+                </div>
+            </div>
+
+            <div class="right-showcase-images">
+                <img src="images/new.jpg" alt="Website Mockup 1" class="mockup mockup-1">
+                <img src="images/olio.jpg" alt="Website Mockup 2" class="mockup mockup-2">
+                <img src="images/neww.jpg" alt="Website Mockup 3" class="mockup mockup-3">
+            </div>
+        </div>
+    </section>
+
+    <section class="our-journey" id="our-journey">
+        <div class="container">
+            <h2>Our Journey</h2>
+            <p class="section-subtitle"> Amuj softwares: Where innovation meets dedication.</p>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p>It all began with a shared passion for creativity and a vision to empower businesses with compelling visual identities and effective online presences. Amuj softwares started with the belief that good design is not just about aesthetics, but about solving problems and connecting with audiences.</p>
+                    <p>In the early days, we focused on graphics designing working with small businesses and startups in the Nairobi area. We quickly built a reputation for our personalized approach, attention to detail, and creative solutions.</p>
+                    <p>As our client base grew, so did our expertise and service offerings. We expanded into branding, SEO, e-commerce development, and mobile-optimized websites, constantly adapting to the evolving digital landscape and the needs of our clients.</p>
+                    <p>Today, Amuj softwares is proud to have partnered with a diverse range of clients, from local enterprises to international organizations. Our commitment remains the same: to deliver exceptional design and web solutions that help our clients thrive and achieve their goals.</p>
+                    <p>We are excited about the future and continue to be driven by our passion for creativity, innovation, and the success of our clients. Join us on this journey!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="meet-the-team" id="meet-the-team">
+        <div class="container">
+            <h2>Meet Our Talented Team</h2>
+            <p class="section-subtitle">Passionate individuals dedicated to transforming your creative visions to unimaginable reality.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/amuj.jpg" alt="MR. MUNABI VICTOR HENRY">
+                    <h3>MR. MUNABI VICTOR HENRY</h3>
+                    <p class="team-role">FOUNDER AND CEO</p>
+                    <p class="team-profession">Fullstack Developer</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/munabivictor" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/munabivictor" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/shad.jpg" alt="MR. SHADRACK OUMA OTIENO">
+                    <h3>MR. SHADRACK OUMA OTIENO</h3>
+                    <p class="team-role">SENIOR SOFTWARE DEVELOPER</p>
+                    <p class="team-profession">Backend Specialist</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/shadrackouma" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/shadrackouma" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/fidi.jpg" alt="MR. AMUHAYA BRIAN">
+                    <h3>MR. AMUHAYA BRIAN</h3>
+                    <p class="team-role">DATABASE ADMINISTRATOR</p>
+                    <p class="team-profession">Data Solutions Architect</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/amuhaibrian" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/amuhaibrian" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/woo.png" alt="ALICIA CHRIS">
+                    <h3>ALICIA CHRIS</h3>
+                    <p class="team-role">FULLSTACK DEVELOPER</p>
+                    <p class="team-profession">UI/UX Enthusiast</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-subtitle">Have questions? We've got answers to some of the most common inquiries.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What types of design services do you offer? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of graphic design services, including logo design, brand identity development, marketing materials (brochures, flyers, business cards), social media graphics, and more.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you also provide web development services? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in creating responsive and user-friendly websites. Our web development services include website design, front-end and back-end development, e-commerce solutions, and website maintenance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is your typical design process? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our process generally involves an initial consultation to understand your needs, concept development and design proposals, feedback and revisions, and finally, the delivery of the finalized project files.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does it take to build a website? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The timeline for website development varies depending on complexity, features, and content. A basic website can take 2-4 weeks, while more complex e-commerce or custom web applications might take 8-12 weeks or more. We provide a detailed timeline during the proposal stage.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer website maintenance and support? <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various maintenance packages to ensure your website remains updated, secure, and performs optimally. This includes software updates, backups, security monitoring, and content updates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="website-packages">
+        <div class="container">
+            <h2>Affordable Website Packages</h2>
+            <p class="price-range">Starting from <span class="from-price">Ksh 22000 </span> to <span class="to-price">Ksh 1000000 +</span></p>
+            <p class="section-subtitle">We offer a range of website packages tailored to different needs and budgets.</p>
+
+            <div class="package-types">
+                <div class="package-type">
+                    <h3>Basic Website</h3>
+                    <p>Ideal for individuals or small businesses looking for a simple online presence. Typically includes a few static pages (e.g., homepage, about us, contact), basic design, and contact form.</p>
+                    <p class="price-indicator">From <span class="price">Ksh 23000 </span></p>
+                    <a href="booking.html" class="button small">Get Started</a>
+                </div>
+
+                <div class="package-type">
+                    <h3>Business Website</h3>
+                    <p>Designed for growing businesses needing a more comprehensive online presence. Includes multiple pages, custom design, blog functionality, contact forms, and potential integrations.</p>
+                    <p class="price-indicator">From <span class="price">Ksh 52000 </span></p>
+                    <a href="booking.html" class="button small">Get a Quote</a>
+                </div>
+
+                <div class="package-type">
+                    <h3>E-commerce Website</h3>
+                    <p>Perfect for businesses looking to sell products or services online. Includes features like product listings, shopping cart, secure checkout, payment gateway integration, and inventory management.</p>
+                    <p class="price-indicator">Starting at <span class="price">Ksh 80000</span></p>
+                    <a href="booking.html" class="button small">Discuss Your Needs</a>
+                </div>
+            </div>
+            <p class="package-note">* Prices are indicative and may vary based on specific requirements and features.</p>
+        </div>
+    </section>
+
+    <section class="business-benefits-orbital-section slanted-view">
+        <div class="container">
+            <h2>Unlock Your Business Potential</h2>
+            <p class="section-subtitle">Discover the power of a strong online presence with Amuj softwares.</p>
+
+            <div class="orbital-system-container">
+                <div class="orbital-center-logo">
+                    <img src="logo.png" alt="Amuj Softwares Logo">
+                </div>
+
+                <div class="gradient-slice"></div>
+
+                <div class="orbital-line line-1"></div>
+                <div class="orbital-line line-2"></div>
+                <div class="orbital-line line-3"></div>
+                <div class="orbital-line line-4"></div>
+
+                <a href="#" class="orbital-text-container container-1">Increase visibilty</a>
+                <a href="#" class="orbital-text-container container-2">Sales Enablement</a>
+                <a href="#" class="orbital-text-container container-3">all time online<br> appearance</a>
+                <a href="#" class="orbital-text-container container-4">reach more audience</a>
+                <a href="#" class="orbital-text-container container-5">Advanced Analytics</a>
+                <a href="#" class="orbital-text-container container-6">innovate</a>
+                <a href="#" class="orbital-text-container container-7">Build credibility</a>
+                <a href="#" class="orbital-text-container container-8">Enhance customer<br> engagement</a>
+                <a href="#" class="orbital-text-container container-9">Generate Leads</a>
+            </div>
+
+            <p class="orbital-call-to-action">Ready to elevate your business? <a href="booking.html" class="button small">Get Started Today</a></p>
+        </div>
+    </section>
+
+    <section class="testimonials-slider" id="client-testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <p class="section-subtitle">Hear directly from businesses we've helped succeed.</p>
+            <div class="slider-wrapper">
+                <div class="slides">
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"Amuj Softwares exceeded our expectations! Their creativity and attention to detail in designing our logo and website were outstanding. Truly professional and highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">VICTOR OLOKO</span>
+                            <span class="author-company">CEO, NAIROBI AGROVET LTD</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"The team at Amuj was fantastic to work with. They listened to our needs and delivered a website that is both beautiful and functional. Their ongoing support has been excellent."</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">ALPHA CHICKS</span>
+                            <span class="author-company">Owner, CHICKS HATCHERY SUPPLIER</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slide-dots"></div>
+                    <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="office-location">
+        <div class="container">
+            <h2>Our Office Location</h2>
+            <p class="section-subtitle">Visit us at The Mirage, 9th floor, Westlands, Nairobi.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8093952741544!2d36.79093357497148!3d-1.2863897356262486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10b7b6c5b259%3A0x6e9f28c2b5d4b5b7!2sThe%20Mirage!5e0!3m2!1sen!2ske!4v1716499313437!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="address">
+                Along Waiyaki Way, Nairobi, Kenya
+            </p>
+        </div>
+    </section>
+
+    <section class="our-clients" id="our-clients">
+        <div class="container">
+            <h2>Our Esteemed Clients</h2>
+            <p class="section-subtitle">We've had the privilege of working with these amazing brands.</p>
+            <div class="clients-logo-grid">
+                <div class="client-logo">
+                    <img src="images/lind.jpg" alt="Client Logo 1">
+                </div>
+                <div class="client-logo">
+                    <img src="logo.png" alt="Client Logo 2">
+                </div>
+                <div class="client-logo">
+                    <img src="images/tg.jpg" alt="Client Logo 3">
+                </div>
+                <div class="client-logo">
+                    <img src="images/conv.jpg" alt="Client Logo 4">
+                </div>
+                <div class="client-logo">
+                    <img src="images/drp.jpg" alt="Client Logo 5">
+                </div>
+                <div class="client-logo">
+                    <img src="images/pep.jpg" alt="Client Logo 6">
+                </div>
+                <div class="client-logo">
+                    <img src="images/rol.jpg" alt="Client Logo 7">
+                </div>
+                <div class="client-logo">
+                    <img src="images/son.jpg" alt="Client Logo 8">
+                </div>
+                <div class="client-logo">
+                    <img src="images/sla.jpg" alt="Client Logo 9">
+                </div>
+                <div class="client-logo">
+                    <img src="images/mon.jpg" alt="Client Logo 10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <p>This website uses cookies to ensure you get the best experience. By clicking "Accept", you agree to our <a href="/privacy-policy.html">privacy policy</a>.</p>
+        <div class="cookie-buttons">
+            <button id="acceptCookies" class="btn accept">Accept</button>
+            <button id="denyCookies" class="btn deny">Deny</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> The Mirage, 9th Floor, Westlands, Nairobi, Kenya</p>
+            <p><i class="fas fa-phone-alt"></i> +254 796 812 642 (Main Office)</p>
+            <p><i class="fas fa-mobile-alt"></i> +254 708 466 580 (Sales)</p>
+            <p><i class="fas fa-envelope"></i> info@amujsoftwares.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#our-journey">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="booking.html">Request a Quote</a></li>
+                <li><a href="#faq-section">FAQs</a></li>
+                <li><a href="privacy policy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h3>Connect With Us</h3>
+            <div class="footer-social-links">
+                <a href="https://twitter.com/amujsoftwares" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com/amujsoftwares" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/amujsoftwares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/amujsoftwares" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="current-year"></span> Amuj Softwares. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('open');
+                const answer = item.querySelector('.faq-answer');
+                const icon = question.querySelector('.fas'); // Get the plus/minus icon
+                if (item.classList.contains('open')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    answer.style.maxHeight = '0';
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
+            });
+        });
+
+        // Testimonial Slider
+        const slides = document.querySelector('.slides');
+        const slideDotsContainer = document.querySelector('.slide-dots');
+        const prevButton = document.querySelector('.prev-slide');
+        const nextButton = document.querySelector('.next-slide');
+        const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.dataset.index = i;
+            slideDotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Event Listeners for slider
+        prevButton.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide(); // Restart timer after manual navigation
+        });
+
+        nextButton.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide(); // Restart timer after manual navigation
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                stopAutoSlide();
+                currentSlide = parseInt(e.target.dataset.index);
+                updateSlider();
+                startAutoSlide(); // Restart timer after manual navigation
+            });
+        });
+
+        // Initialize slider
+        updateSlider();
+        startAutoSlide(); // Start auto-sliding
+
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // New JavaScript for the consolidated dropdown in main-nav-top
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItemDropdown = document.querySelector('.nav-item-dropdown');
+            const dropdownToggle = navItemDropdown.querySelector('.dropdown-toggle');
+            const dropdownMenu = navItemDropdown.querySelector('.dropdown-menu');
+
+            // Toggle dropdown on click
+            dropdownToggle.addEventListener('click', () => {
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!navItemDropdown.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

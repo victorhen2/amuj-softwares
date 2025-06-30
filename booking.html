@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote - Amuj Softwares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Basic styling for the layout (consistent with other pages) */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light background */
+            color: #333;
+        }
+
+        /* --- Content Navigation Styles (Copied from index.html for consistency) --- */
+        .content-nav {
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center; /* Center items */
+            gap: 30px; /* Space between navigation items */
+            position: relative; /* For absolute positioning of dropdowns */
+            z-index: 1000; /* Ensure nav is above other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .content-nav-item {
+            position: relative; /* For dropdown positioning */
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .content-nav-item-header {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none; /* If it's a link, style accordingly */
+        }
+
+        .content-nav-item-header .caret {
+            margin-left: 8px;
+            transition: transform 0.3s ease; /* Smooth rotation for the caret */
+        }
+
+        .content-dropdown {
+            position: absolute;
+            top: 100%; /* Position right below the header */
+            left: 50%; /* Center the dropdown relative to its parent */
+            transform: translateX(-50%); /* Adjust for perfect centering */
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            overflow: hidden; /* Hide overflowing content during animation */
+            max-height: 0; /* Initially hidden */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Sling animation */
+            padding: 0 15px; /* No padding when closed */
+        }
+
+        .content-dropdown a {
+            color: #333;
+            padding: 10px 0;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap; /* Prevent wrapping */
+            transition: background-color 0.2s ease;
+        }
+
+        .content-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Hover states */
+        .content-nav-item:hover .content-dropdown {
+            max-height: 200px; /* Adjust based on content height */
+            padding: 15px; /* Add padding when open */
+        }
+
+        .content-nav-item:hover .caret {
+            transform: rotate(180deg); /* Rotate caret on hover */
+        }
+        /* --- End Content Navigation Styles --- */
+
+        /* --- Booking Page Specific Styles --- */
+        .booking-hero {
+            background: linear-gradient(rgba(131, 235, 155, 0.8), rgba(34, 91, 48, 0.694)), url('images/booking-bg.jpg') no-repeat center center/cover; /* Green gradient */
+            color: rgb(10, 130, 194);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+            background-image: url(images/2.jpg);
+            border-radius: 14px;
+            margin: 25px;
+        }
+
+        .booking-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .booking-hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+            color: rgba(228, 203, 37, 0.919);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quote-form-section {
+            padding: 60px 20px;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .quote-form-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            text-align: left;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quote-form-container h2 {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .quote-form-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 12px 10px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 1em;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group.checkbox-group label {
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: normal;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .form-group.checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Make checkbox slightly larger */
+        }
+
+        .form-section-title {
+            font-size: 1.8em;
+            color: #495057;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .submit-button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .submit-button {
+            background-color: #28a745; /* Green submit button */
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+        }
+
+        .submit-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .success-message {
+            display: none; /* Hidden by default */
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.1em;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive adjustments for form */
+        @media (max-width: 600px) {
+            .quote-form-container {
+                padding: 25px;
+            }
+            .quote-form-container h2 {
+                font-size: 2em;
+            }
+            .form-section-title {
+                font-size: 1.5em;
+            }
+            .submit-button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+        }
+
+        /* --- Footer Styles (Copied from index.html for consistency) --- */
+        footer {
+            background-color: #212529; /* Darker background for a more substantial footer */
+            color: #f8f9fa; /* Light text color */
+            padding: 40px 20px; /* More padding */
+            text-align: center;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: space-around; /* Distribute items with space around them */
+            align-items: flex-start; /* Align items to the top of the flex container */
+            gap: 30px; /* Gap between footer columns */
+            box-sizing: border-box; /* Include padding in element's total width/height */
+        }
+
+        .footer-section {
+            flex: 1; /* Allow sections to grow */
+            min-width: 250px; /* Minimum width for each section before wrapping */
+            max-width: 30%; /* Max width for each section */
+            text-align: left; /* Align text within sections to the left */
+        }
+
+        .footer-section h3 {
+            color: #007bff; /* Accent color for headings */
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #007bff; /* Icon color */
+        }
+
+        .footer-social-links {
+            margin-top: 15px;
+        }
+
+        .footer-social-links a {
+            color: #f8f9fa; /* Icon color */
+            font-size: 1.8em; /* Size of social icons */
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: #007bff; /* Hover color for icons */
+        }
+
+        .footer-copyright {
+            width: 100%; /* Take full width */
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+            color: #adb5bd; /* Lighter text for copyright */
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column; /* Stack columns vertically on smaller screens */
+                align-items: center; /* Center items when stacked */
+                text-align: center;
+            }
+            .footer-section {
+                max-width: 90%; /* Allow sections to take more width */
+                margin-bottom: 30px; /* Space between stacked sections */
+            }
+            .footer-section h3 {
+                text-align: center; /* Center headings on mobile */
+            }
+        }
+        /* --- End Footer Styles --- */
+    </style>
+</head>
+<body>
+
+    <nav class="content-nav">
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Services
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="services.html#web-design">Web Design & Dev</a>
+                <a href="services.html#graphics-design">Graphics Design</a>
+                <a href="services.html#digital-marketing">Digital Marketing</a>
+                <a href="services.html#branding-solutions">Branding Solutions</a>
+                <a href="services.html#e-commerce">E-commerce Solutions</a>
+                <a href="services.html">View All Services</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Company
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+              <a href="index.html#home">Home</a>
+                <a href="index.html#our-journey">Our Journey</a>
+                <a href="index.html#meet-the-team">Meet the Team</a>
+                <a href="index.html#our-clients">Our Clients</a>
+                <a href="index.html#office-location">Contact Us</a>
+            </div>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Portfolio
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="portfolio.html">Web design & dev</a>
+                <a href="portfolio.html">Graphics design</a>
+                <a href="portfolio.html">Video & Animation</a>
+                <a href="portfolio.html">Branding</a>
+                <a href="contacts.html">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Resources
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="index.html#faq-section">FAQs</a>
+                <a href="#">Blog (Coming Soon)</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="booking.html" style="text-decoration: none; color: inherit;">Booking</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="web-hosting.html" style="text-decoration: none; color: inherit;">Hosting services</a>
+            </span>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="contacts.html" style="text-decoration: none; color: inherit;">Contact Us</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="login.html" style="text-decoration: none; color: inherit;">Login/Sign Up</a>
+            </span>
+        </div>
+    </nav>
+    
+       
+        <section class="quote-form-section">
+            <div class="quote-form-container">
+                <h2>Get Your Custom Quote</h2>
+                <form id="quoteForm">
+                    <div class="form-section-title">Project Details</div>
+                    <div class="form-group">
+                        <label for="serviceType">Type of Service Interested In:</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">-- Please Select --</option>
+                            <option value="web-design">Custom Website Design</option>
+                            <option value="web-development">Front-end & Back-end Development</option>
+                            <option value="mobile-app-dev">Mobile App Development</option>
+                            <option value="website-maintenance">Website Maintenance & Support</option>
+                            <option value="logo-brand-identity">Logo & Brand Identity Design</option>
+                            <option value="print-design">Print Design (Brochures, Flyers, etc.)</option>
+                            <option value="social-media-graphics">Social Media Graphics</option>
+                            <option value="illustration-icon">Illustration & Icon Design</option>
+                            <option value="seo">Search Engine Optimization (SEO)</option>
+                            <option value="ppc">Pay-Per-Click (PPC) Advertising</option>
+                            <option value="email-marketing">Email Marketing Campaigns</option>
+                            <option value="brand-strategy">Brand Strategy & Positioning</option>
+                            <option value="brand-guidelines">Brand Guideline Development</option>
+                            <option value="e-commerce-dev">Online Store Development</option>
+                            <option value="e-commerce-security">E-commerce Security & Optimization</option>
+                            <option value="other">Other (Please specify below)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectName">Project Title/Name (Optional):</label>
+                        <input type="text" id="projectName" name="projectName" placeholder="e.g., My New Business Website, Company Logo Redesign">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectDescription">Project Description: <span style="color: red;">*</span></label>
+                        <textarea id="projectDescription" name="projectDescription" rows="6" placeholder="Describe your project in detail. What are your goals? What features do you need? What's your vision?" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budgetRange">Estimated Budget Range (Optional):</label>
+                        <select id="budgetRange" name="budgetRange">
+                            <option value="">-- Select a range --</option>
+                            <option value="under-100k">Under Ksh 50,000</option>
+                            <option value="100k-250k">Ksh 50,000 - Ksh 100,000</option>
+                            <option value="250k-500k">Ksh 100,000 - Ksh 250,000</option>
+                            <option value="500k-1m">Ksh 250,000 - Ksh 500,000</option>
+                            <option value="over-1m">Over Ksh 500,000</option>
+                            <option value="not-sure">Not sure yet</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">Desired Project Timeline (Optional):</label>
+                        <input type="text" id="timeline" name="timeline" placeholder="e.g., 2-3 months, ASAP, Q4 2025">
+                    </div>
+
+                    <div class="form-section-title">Your Contact Information</div>
+                    <div class="form-group">
+                        <label for="fullName">Your Full Name: <span style="color: red;">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email: <span style="color: red;">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Your Phone Number (Optional):</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyName">Company Name (Optional):</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Your Company Ltd.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="howHear">How did you hear about us? (Optional)</label>
+                        <select id="howHear" name="howHear">
+                            <option value="">-- Select an option --</option>
+                            <option value="google">Google Search</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="referral">Referral</option>
+                            <option value="online-ad">Online Advertisement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                        <label for="agreeTerms">I agree to the <a href="privacy policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms of Service</a>. <span style="color: red;">*</span></label>
+                    </div>
+
+                    <div class="submit-button-container">
+                        <button type="submit" class="submit-button">Submit Quote Request</button>
+                    </div>
+
+                    <div id="successMessage" class="success-message">
+                        Thank you for your quote request! We have received your submission and will get back to you within 1-2 business days.
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+       <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> The Mirage, 9th Floor, Westlands, Nairobi, Kenya</p>
+            <p><i class="fas fa-phone-alt"></i> +254 796 812 642 (Main Office)</p>
+            <p><i class="fas fa-mobile-alt"></i> +254 708 466 580 (Sales)</p>
+            <p><i class="fas fa-envelope"></i> info@amujsoftwares.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html#about-us">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="booking.html">Request a Quote</a></li>
+                <li><a href="index.html#faq-section">FAQs</a></li>
+                <li><a href="privacy policy.html">Privacy Policy</a></li> </ul>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h3>Connect With Us</h3>
+            <div class="footer-social-links">
+                <a href="https://twitter.com/amujsoftwares" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com/amujsoftwares" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/amujsoftwares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/amujsoftwares" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/2547XXXXXXXX" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="newsletter-text">Join our newsletter for updates!</p>
+            </div>
+
+        <div class="footer-copyright">
+            © 2025 Amujsoftwares. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for dropdown functionality (consistent with index.html)
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.content-nav-item');
+
+            navItems.forEach(item => {
+                const header = item.querySelector('.content-nav-item-header');
+                const dropdown = item.querySelector('.content-dropdown');
+                const caret = item.querySelector('.caret');
+
+                if (dropdown) { // Only add listener if there's a dropdown
+                    header.addEventListener('click', function() {
+                        // Close other open dropdowns
+                        navItems.forEach(otherItem => {
+                            const otherDropdown = otherItem.querySelector('.content-dropdown');
+                            const otherCaret = otherItem.querySelector('.caret');
+                            if (otherDropdown && otherDropdown !== dropdown && otherDropdown.style.maxHeight !== '0px') {
+                                otherDropdown.style.maxHeight = '0';
+                                otherDropdown.style.padding = '0 15px';
+                                if (otherCaret) otherCaret.style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        if (dropdown.style.maxHeight === '0px' || dropdown.style.maxHeight === '') {
+                            dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+                            dropdown.style.padding = '15px';
+                            if (caret) caret.style.transform = 'rotate(180deg)';
+                        } else {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+
+            // Close dropdowns if clicked outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.content-nav-item')) {
+                    navItems.forEach(item => {
+                        const dropdown = item.querySelector('.content-dropdown');
+                        const caret = item.querySelector('.caret');
+                        if (dropdown) {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+        });
+
+        // JavaScript for form submission and validation
+        document.getElementById('quoteForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const requiredFields = form.querySelectorAll('[required]');
+            let allValid = true;
+
+            // Simple validation for required fields
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = 'red';
+                    allValid = false;
+                } else {
+                    field.style.borderColor = '#ced4da'; /* Reset to default */
+                }
+            });
+
+            const agreeTermsCheckbox = document.getElementById('agreeTerms');
+            if (!agreeTermsCheckbox.checked) {
+                alert('Please agree to the Privacy Policy and Terms of Service.');
+                allValid = false;
+            }
+
+            if (allValid) {
+                // In a real application, you would send this data to a server
+                // using fetch() or XMLHttpRequest.
+                console.log('Form Submitted Successfully!');
+                const formData = new FormData(form);
+                for (let [key, value] of formData.entries()) {
+                    console.log(`${key}: ${value}`);
+                }
+
+                // Display success message
+                document.getElementById('successMessage').style.display = 'block';
+                form.reset(); // Clear the form
+                // Optionally hide the form after submission
+                // form.style.display = 'none';
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Add event listeners to reset border color on input
+        document.querySelectorAll('#quoteForm input, #quoteForm select, #quoteForm textarea').forEach(field => {
+            field.addEventListener('input', () => {
+                if (field.value.trim()) {
+                    field.style.borderColor = '#ced4da';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

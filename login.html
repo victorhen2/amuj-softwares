@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Amuj Softwares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Basic styling for the layout (consistent with other pages) */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light background */
+            color: #333;
+        }
+
+        /* --- Content Navigation Styles (Copied for consistency) --- */
+        .content-nav {
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center; /* Center items */
+            gap: 30px; /* Space between navigation items */
+            position: relative; /* For absolute positioning of dropdowns */
+            z-index: 1000; /* Ensure nav is above other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .content-nav-item {
+            position: relative; /* For dropdown positioning */
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .content-nav-item-header {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none; /* If it's a link, style accordingly */
+        }
+
+        .content-nav-item-header .caret {
+            margin-left: 8px;
+            transition: transform 0.3s ease; /* Smooth rotation for the caret */
+        }
+
+        .content-dropdown {
+            position: absolute;
+            top: 100%; /* Position right below the header */
+            left: 50%; /* Center the dropdown relative to its parent */
+            transform: translateX(-50%); /* Adjust for perfect centering */
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            overflow: hidden; /* Hide overflowing content during animation */
+            max-height: 0; /* Initially hidden */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Sling animation */
+            padding: 0 15px; /* No padding when closed */
+        }
+
+        .content-dropdown a {
+            color: #333;
+            padding: 10px 0;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap; /* Prevent wrapping */
+            transition: background-color 0.2s ease;
+        }
+
+        .content-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Hover states */
+        .content-nav-item:hover .content-dropdown {
+            max-height: 200px; /* Adjust based on content height */
+            padding: 15px; /* Add padding when open */
+        }
+
+        .content-nav-item:hover .caret {
+            transform: rotate(180deg); /* Rotate caret on hover */
+        }
+        /* --- End Content Navigation Styles --- */
+
+        /* --- Login/Signup Page Specific Styles --- */
+        .auth-hero {
+            background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.9)), url('images/auth-bg.jpg') no-repeat center center/cover; /* Blue gradient */
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+            background-image: url(images/3.jpg);
+            border-radius: 14px;
+            margin: 25px;
+        }
+
+        .auth-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .auth-hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-form-section {
+            padding: 60px 20px;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .auth-form-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            text-align: left;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-form-container h2 {
+            font-size: 2.2em; /* Slightly smaller for the main heading */
+            color: #007bff;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .auth-form-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Reduced margin for smaller feel */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px; /* Reduced margin */
+            font-weight: bold;
+            color: #555;
+            font-size: 0.95em; /* Smaller font for labels */
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group input[type="text"] {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 10px; /* Smaller padding */
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 0.9em; /* Smaller font for inputs */
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus,
+        .form-group input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .submit-button-container {
+            text-align: center;
+            margin-top: 30px; /* Reduced margin */
+        }
+
+        .submit-button {
+            background-color: #007bff; /* Blue submit button */
+            color: white;
+            padding: 12px 30px; /* Smaller padding */
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em; /* Slightly smaller font */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .form-links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em; /* Smaller font for links section */
+        }
+
+        .form-links a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .form-links a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .error-message {
+            display: none; /* Hidden by default */
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9em; /* Smaller font */
+        }
+
+        /* Responsive adjustments for form */
+        @media (max-width: 600px) {
+            .auth-form-container {
+                padding: 25px;
+            }
+            .auth-form-container h2 {
+                font-size: 1.8em;
+            }
+            .submit-button {
+                padding: 10px 25px;
+                font-size: 1em;
+            }
+        }
+
+        /* --- Footer Styles (Copied for consistency) --- */
+        footer {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 30px;
+            box-sizing: border-box;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            max-width: 30%;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .footer-social-links {
+            margin-top: 15px;
+        }
+
+        .footer-social-links a {
+            color: #f8f9fa;
+            font-size: 1.8em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: #007bff;
+        }
+
+        .footer-copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-section {
+                max-width: 90%;
+                margin-bottom: 30px;
+            }
+            .footer-section h3 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="content-nav">
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Services
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="services.html#web-design">Web Design & Dev</a>
+                <a href="services.html#graphics-design">Graphics Design</a>
+                <a href="services.html#digital-marketing">Digital Marketing</a>
+                <a href="services.html#branding-solutions">Branding Solutions</a>
+                <a href="services.html#e-commerce">E-commerce Solutions</a>
+                <a href="services.html">View All Services</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Company
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+              <a href="index.html#home">Home</a>
+                <a href="index.html#our-journey">Our Journey</a>
+                <a href="index.html#meet-the-team">Meet the Team</a>
+                <a href="index.html#our-clients">Our Clients</a>
+                <a href="index.html#office-location">Contact Us</a>
+            </div>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Portfolio
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="portfolio.html">Web design & dev</a>
+                <a href="portfolio.html">Graphics design</a>
+                <a href="portfolio.html">Video & Animation</a>
+                <a href="portfolio.html">Branding</a>
+                <a href="contacts.html">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Resources
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="index.html#faq-section">FAQs</a>
+                <a href="#">Blog (Coming Soon)</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="booking.html" style="text-decoration: none; color: inherit;">Booking</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="web-hosting.html" style="text-decoration: none; color: inherit;">Hosting services</a>
+            </span>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="contacts.html" style="text-decoration: none; color: inherit;">Contact Us</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="login.html" style="text-decoration: none; color: inherit;">Login/Sign Up</a>
+            </span>
+        </div>
+    </nav>
+    
+
+        <section class="auth-form-section">
+            <div class="auth-form-container">
+                <h2>Login to Your Account</h2>
+                <div id="errorMessage" class="error-message"></div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address:</label>
+                        <input type="email" id="loginEmail" name="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" name="password" required placeholder="••••••••">
+                    </div>
+
+                    <div class="submit-button-container">
+                        <button type="submit" class="submit-button">Login</button>
+                    </div>
+
+                    <div class="form-links">
+                        <p><a href="#">Forgot Password?</a></p>
+                        <p>Don't have an account? <a href="signup.html">Sign Up Here</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> The Mirage, 9th Floor, Westlands, Nairobi, Kenya</p>
+            <p><i class="fas fa-phone-alt"></i> +254 796 812 642 (Main Office)</p>
+            <p><i class="fas fa-mobile-alt"></i> +254 708 466 580 (Sales)</p>
+            <p><i class="fas fa-envelope"></i> info@amujsoftwares.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html#about-us">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="booking.html">Request a Quote</a></li>
+                <li><a href="index.html#faq-section">FAQs</a></li>
+                <li><a href="privacy policy.html">Privacy Policy</a></li> </ul>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h3>Connect With Us</h3>
+            <div class="footer-social-links">
+                <a href="https://twitter.com/amujsoftwares" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com/amujsoftwares" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/amujsoftwares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/amujsoftwares" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/2547XXXXXXXX" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="newsletter-text">Join our newsletter for updates!</p>
+            </div>
+
+        <div class="footer-copyright">
+            © 2025 Amujsoftwares. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for dropdown functionality (consistent with index.html)
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.content-nav-item');
+
+            navItems.forEach(item => {
+                const header = item.querySelector('.content-nav-item-header');
+                const dropdown = item.querySelector('.content-dropdown');
+                const caret = item.querySelector('.caret');
+
+                if (dropdown) { // Only add listener if there's a dropdown
+                    header.addEventListener('click', function() {
+                        // Close other open dropdowns
+                        navItems.forEach(otherItem => {
+                            const otherDropdown = otherItem.querySelector('.content-dropdown');
+                            const otherCaret = otherItem.querySelector('.caret');
+                            if (otherDropdown && otherDropdown !== dropdown && otherDropdown.style.maxHeight !== '0px') {
+                                otherDropdown.style.maxHeight = '0';
+                                otherDropdown.style.padding = '0 15px';
+                                if (otherCaret) otherCaret.style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        if (dropdown.style.maxHeight === '0px' || dropdown.style.maxHeight === '') {
+                            dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+                            dropdown.style.padding = '15px';
+                            if (caret) caret.style.transform = 'rotate(180deg)';
+                        } else {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+
+            // Close dropdowns if clicked outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.content-nav-item')) {
+                    navItems.forEach(item => {
+                        const dropdown = item.querySelector('.content-dropdown');
+                        const caret = item.querySelector('.caret');
+                        if (dropdown) {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+        });
+
+        // JavaScript for form submission and validation
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const errorMessageDiv = document.getElementById('errorMessage');
+
+            // Basic client-side validation
+            if (!email || !password) {
+                errorMessageDiv.textContent = 'Please fill in all required fields.';
+                errorMessageDiv.style.display = 'block';
+                return;
+            }
+
+            // In a real application, you would send this data to a server
+            // using fetch() or XMLHttpRequest for authentication.
+            console.log('Login attempt:');
+            console.log('Email:', email);
+            console.log('Password:', '********'); // Never log actual password
+
+            // Simulate successful login (replace with actual backend call)
+            // For demonstration, let's just clear the error message and log success
+            errorMessageDiv.style.display = 'none';
+            alert('Login attempted! (This is a demo. In a real app, you\'d be redirected or see a success message)');
+            // window.location.href = 'dashboard.html'; // Redirect to a dashboard or homepage on success
+        });
+
+        // Add event listeners to hide error message when user starts typing
+        document.querySelectorAll('#loginForm input').forEach(field => {
+            field.addEventListener('input', () => {
+                document.getElementById('errorMessage').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

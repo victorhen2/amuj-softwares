@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Hosting - Amuj Softwares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic styling for the layout (consistent with index.html) */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light background */
+            color: #333;
+        }
+
+        /* --- Content Navigation Styles (Copied from index.html for consistency) --- */
+        .content-nav {
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center; /* Center items */
+            gap: 30px; /* Space between navigation items */
+            position: relative; /* For absolute positioning of dropdowns */
+            z-index: 1000; /* Ensure nav is above other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .content-nav-item {
+            position: relative; /* For dropdown positioning */
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .content-nav-item-header {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none; /* If it's a link, style accordingly */
+        }
+
+        .content-nav-item-header .caret {
+            margin-left: 8px;
+            transition: transform 0.3s ease; /* Smooth rotation for the caret */
+        }
+
+        .content-dropdown {
+            position: absolute;
+            top: 100%; /* Position right below the header */
+            left: 50%; /* Center the dropdown relative to its parent */
+            transform: translateX(-50%); /* Adjust for perfect centering */
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            overflow: hidden; /* Hide overflowing content during animation */
+            max-height: 0; /* Initially hidden */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Sling animation */
+            padding: 0 15px; /* No padding when closed */
+        }
+
+        .content-dropdown a {
+            color: #333;
+            padding: 10px 0;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap; /* Prevent wrapping */
+            transition: background-color 0.2s ease;
+        }
+
+        .content-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Hover states */
+        .content-nav-item:hover .content-dropdown {
+            max-height: 200px; /* Adjust based on content height */
+            padding: 15px; /* Add padding when open */
+        }
+
+        .content-nav-item:hover .caret {
+            transform: rotate(180deg); /* Rotate caret on hover */
+        }
+        /* --- End Content Navigation Styles --- */
+
+        /* --- Web Hosting Page Specific Styles --- */
+        .web-hosting-hero {
+            background: linear-gradient(rgba(243, 124, 249, 0.594), rgba(53, 43, 55, 0.659)), url('images/hosting-bg.jpg') no-repeat center center/cover;
+            color: rgba(217, 80, 53, 0.79);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            border-radius: 4px;
+           
+            background-image: url(images/mys.webp);
+            border-radius: 14px;
+            margin: 25px;
+        }
+
+        .web-hosting-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .web-hosting-hero p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .web-hosting-hero .cta-button {
+            display: inline-block;
+            background-color: #28a745; /* Green button */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .web-hosting-hero .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        .hosting-providers-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .hosting-providers-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #007bff;
+        }
+
+        .provider-category {
+            margin-bottom: 60px;
+        }
+
+        .provider-category h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #495057;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 15px;
+            display: inline-block; /* To make border-bottom fit text */
+        }
+
+        .hosting-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hosting-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden; /* For badge positioning */
+        }
+
+        .hosting-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .hosting-card .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #dc3545; /* Red for popular/best value */
+            color: white;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            border-top-right-radius: 10px;
+            transform: rotate(45deg) translate(30%, -30%);
+            transform-origin: 100% 0%; /* Rotate around top-right corner */
+        }
+
+        .hosting-card .badge.popular { background-color: #ffc107; color: #333; } /* Yellow */
+        .hosting-card .badge.best-value { background-color: #28a745; } /* Green */
+
+        .hosting-card img.provider-logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .hosting-card:hover img.provider-logo {
+            transform: scale(1.05);
+        }
+
+        .hosting-card h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .hosting-card .price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #28a745; /* Green for price */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .hosting-card .price span {
+            font-size: 0.6em;
+            font-weight: normal;
+            color: #6c757d;
+        }
+
+        .hosting-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .hosting-card ul li {
+            margin-bottom: 10px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            font-size: 0.95em;
+        }
+
+        .hosting-card ul li i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .hosting-card .action-button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hosting-card .action-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer Styles (Copied from index.html for consistency) --- */
+        footer {
+            background-color: #212529; /* Darker background for a more substantial footer */
+            color: #f8f9fa; /* Light text color */
+            padding: 40px 20px; /* More padding */
+            text-align: center;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: space-around; /* Distribute items with space around them */
+            align-items: flex-start; /* Align items to the top of the flex container */
+            gap: 30px; /* Gap between footer columns */
+            box-sizing: border-box; /* Include padding in element's total width/height */
+        }
+
+        .footer-section {
+            flex: 1; /* Allow sections to grow */
+            min-width: 250px; /* Minimum width for each section before wrapping */
+            max-width: 30%; /* Max width for each section */
+            text-align: left; /* Align text within sections to the left */
+        }
+
+        .footer-section h3 {
+            color: #007bff; /* Accent color for headings */
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #007bff; /* Icon color */
+        }
+
+        .footer-social-links {
+            margin-top: 15px;
+        }
+
+        .footer-social-links a {
+            color: #f8f9fa; /* Icon color */
+            font-size: 1.8em; /* Size of social icons */
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: #007bff; /* Hover color for icons */
+        }
+
+        .footer-copyright {
+            width: 100%; /* Take full width */
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+            color: #adb5bd; /* Lighter text for copyright */
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column; /* Stack columns vertically on smaller screens */
+                align-items: center; /* Center items when stacked */
+                text-align: center;
+            }
+            .footer-section {
+                max-width: 90%; /* Allow sections to take more width */
+                margin-bottom: 30px; /* Space between stacked sections */
+            }
+            .footer-section h3 {
+                text-align: center; /* Center headings on mobile */
+            }
+        }
+        /* --- End Footer Styles --- */
+    </style>
+</head>
+<body>
+
+    <nav class="content-nav">
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Services
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="services.html#logo-design">Logo Design</a>
+                <a href="services.html#web-development">Web Development</a>
+                <a href="services.html#branding">Branding</a>
+                <a href="services.html">View All Services</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Company
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#our-journey">Our Journey</a>
+                <a href="index.html#meet-the-team">Meet the Team</a>
+                <a href="index.html#our-clients">Our Clients</a>
+                <a href="index.html#office-location">Contact Us</a>
+            </div>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Portfolio
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="portfolio.html">Web design & dev</a>
+                <a href="portfolio.html">Graphics design</a>
+                <a href="portfolio.html">Video & Animation</a>
+                <a href="portfolio.html">Branding</a>
+                <a href="contacts.html">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Resources
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="index.html#faq-section">FAQs</a>
+                <a href="#">Blog (Coming Soon)</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="booking.html" style="text-decoration: none; color: inherit;">Booking</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="web-hosting.html" style="text-decoration: none; color: inherit;">Hosting services</a>
+            </span>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="contacts.html" style="text-decoration: none; color: inherit;">Contact Us</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="login.html" style="text-decoration: none; color: inherit;">Login/Sign Up</a>
+            </span>
+        </div>
+    </nav>
+    
+
+    <section id="offers" class="hosting-providers-section">
+        <div class="container">
+            <h2>Our Recommended Web Hosting Partners & Offers</h2>
+
+            <div class="provider-category">
+                <h3>Local Kenyan Hosters</h3>
+                <div class="hosting-cards-grid">
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0s;">
+                        <span class="badge best-value">Best Value</span>
+                        <img src="images/host.png" alt="HostPinnacle Logo" class="provider-logo">
+                        <h4>HostPinnacle</h4>
+                        <p class="price">Ksh 4,200<span>/year</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 30 GB SSD Storage</li>
+                            <li><i class="fas fa-check-circle"></i> Unlimited Bandwidth</li>
+                            <li><i class="fas fa-check-circle"></i> Free SSL Certificate</li>
+                            <li><i class="fas fa-check-circle"></i> Free Domain (.co.ke)</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
+                            <li><i class="fas fa-check-circle"></i> cPanel Access</li>
+                        </ul>
+                        <a href="https://www.hostpinnacle.co.ke/" target="_blank" class="action-button">View Plans</a>
+                    </div>
+
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0.2s;">
+                        <img src="images/tru.png" alt="Truehost Cloud Logo" class="provider-logo">
+                        <h4>Truehost Cloud</h4>
+                        <p class="price">Ksh 3,500<span>/year</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 20 GB NVMe SSD</li>
+                            <li><i class="fas fa-check-circle"></i> Unlimited Emails</li>
+                            <li><i class="fas fa-check-circle"></i> Free Automated SSL</li>
+                            <li><i class="fas fa-check-circle"></i> Daily Backups</li>
+                            <li><i class="fas fa-check-circle"></i> Free Website Builder</li>
+                            <li><i class="fas fa-check-circle"></i> 99.9% Uptime</li>
+                        </ul>
+                        <a href="https://truehost.co.ke/" target="_blank" class="action-button">Learn More</a>
+                    </div>
+
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0.4s;">
+                        <span class="badge popular">Popular</span>
+                        <img src="images/saf.png" alt="Safaricom Web Hosting Logo" class="provider-logo">
+                        <h4>Safaricom Hosting</h4>
+                        <p class="price">Ksh 1,500<span>/year</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 500 MB Storage</li>
+                            <li><i class="fas fa-check-circle"></i> Basic Hosting</li>
+                            <li><i class="fas fa-check-circle"></i> Email Accounts</li>
+                            <li><i class="fas fa-check-circle"></i> Reliable Infrastructure</li>
+                            <li><i class="fas fa-check-circle"></i> Good for Small Sites</li>
+                            <li><i class="fas fa-check-circle"></i> Local Support</li>
+                        </ul>
+                        <a href="https://www.safaricom.co.ke/business/sme/web-hosting" target="_blank" class="action-button">Check Offers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="provider-category">
+                <h3>International Powerhouses</h3>
+                <div class="hosting-cards-grid">
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0s;">
+                        <span class="badge popular">Popular</span>
+                        <img src="images/download.png" alt="Hostinger Logo" class="provider-logo">
+                        <h4>Hostinger</h4>
+                        <p class="price">From $2.99<span>/month</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 100 GB SSD Storage</li>
+                            <li><i class="fas fa-check-circle"></i> Free Domain & SSL</li>
+                            <li><i class="fas fa-check-circle"></i> Managed WordPress</li>
+                            <li><i class="fas fa-check-circle"></i> LiteSpeed Web Servers</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Live Support</li>
+                            <li><i class="fas fa-check-circle"></i> 99.9% Uptime Guarantee</li>
+                        </ul>
+                        <a href="https://www.hostinger.com/" target="_blank" class="action-button">Visit Hostinger</a>
+                    </div>
+
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0.2s;">
+                        <span class="badge best-value">Recommended</span>
+                        <img src="images/download (1).png" alt="Bluehost Logo" class="provider-logo">
+                        <h4>Bluehost</h4>
+                        <p class="price">From $2.95<span>/month</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Free Domain for 1st Year</li>
+                            <li><i class="fas fa-check-circle"></i> Free SSL Certificate</li>
+                            <li><i class="fas fa-check-circle"></i> 50 GB SSD Storage</li>
+                            <li><i class="fas fa-check-circle"></i> Standard Performance</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Customer Support</li>
+                            <li><i class="fas fa-check-circle"></i> WordPress Recommended</li>
+                        </ul>
+                        <a href="https://www.bluehost.com/" target="_blank" class="action-button">Explore Bluehost</a>
+                    </div>
+
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0.4s;">
+                        <span class="badge popular">Premium Pick</span>
+                        <img src="images/download (2).png" alt="SiteGround Logo" class="provider-logo">
+                        <h4>SiteGround</h4>
+                        <p class="price">From $3.99<span>/month</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Fast & Secure Hosting</li>
+                            <li><i class="fas fa-check-circle"></i> Daily Backups</li>
+                            <li><i class="fas fa-check-circle"></i> Free CDN & SSL</li>
+                            <li><i class="fas fa-check-circle"></i> Managed WordPress</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Expert Support</li>
+                            <li><i class="fas fa-check-circle"></i> Multiple Data Centers</li>
+                        </ul>
+                        <a href="https://www.siteground.com/" target="_blank" class="action-button">Go to SiteGround</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="provider-category">
+                <h3>Specialized Hosting</h3>
+                <div class="hosting-cards-grid">
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0s;">
+                        <img src="images/clou.png" alt="Cloudways Logo" class="provider-logo">
+                        <h4>Cloudways</h4>
+                        <p class="price">From $11<span>/month</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Managed Cloud Hosting</li>
+                            <li><i class="fas fa-check-circle"></i> Choose Your Cloud (AWS, GCP, DO, etc.)</li>
+                            <li><i class="fas fa-check-circle"></i> Staging Environment</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced Caching</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Expert Support</li>
+                            <li><i class="fas fa-check-circle"></i> High Performance</li>
+                        </ul>
+                        <a href="https://www.cloudways.com/" target="_blank" class="action-button">Explore Cloudways</a>
+                    </div>
+
+                    <div class="hosting-card scroll-reveal" style="animation-delay: 0.2s;">
+                        <span class="badge best-value">WordPress Pro</span>
+                        <img src="images/kins.png" alt="Kinsta Logo" class="provider-logo">
+                        <h4>Kinsta (WordPress)</h4>
+                        <p class="price">From $35<span>/month</span></p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Premium Managed WordPress</li>
+                            <li><i class="fas fa-check-circle"></i> Google Cloud Platform</li>
+                            <li><i class="fas fa-check-circle"></i> Daily Backups & Staging</li>
+                            <li><i class="fas fa-check-circle"></i> Free CDN & SSL</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Expert Support</li>
+                            <li><i class="fas fa-check-circle"></i> High Scalability</li>
+                        </ul>
+                        <a href="https://kinsta.com/" target="_blank" class="action-button">View Kinsta Plans</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="web-hosting-cta">
+        <div class="container">
+            <h2>Need Help Choosing?</h2>
+            <p>Navigating the world of web hosting can be complex. Let Amuj Softwares guide you to the perfect hosting solution tailored to your specific needs and budget.</p>
+            <a href="booking.html" class="cta-button">Get Expert Hosting Advice</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> The Mirage, 9th Floor, Westlands, Nairobi, Kenya</p>
+            <p><i class="fas fa-phone-alt"></i> +254 796 812 642 (Main Office)</p>
+            <p><i class="fas fa-mobile-alt"></i> +254 708 466 580 (Sales)</p>
+            <p><i class="fas fa-envelope"></i> info@amujsoftwares.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html#about-us">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="booking.html">Request a Quote</a></li>
+                <li><a href="index.html#faq-section">FAQs</a></li>
+                <li><a href="privacy policy.html">Privacy Policy</a></li> </ul>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h3>Connect With Us</h3>
+            <div class="footer-social-links">
+                <a href="https://twitter.com/amujsoftwares" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com/amujsoftwares" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/amujsoftwares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/amujsoftwares" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/2547XXXXXXXX" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="newsletter-text">Join our newsletter for updates!</p>
+            </div>
+
+        <div class="footer-copyright">
+            © 2025 Amujsoftwares. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for dropdown functionality (consistent with index.html)
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.content-nav-item');
+
+            navItems.forEach(item => {
+                const header = item.querySelector('.content-nav-item-header');
+                const dropdown = item.querySelector('.content-dropdown');
+                const caret = item.querySelector('.caret');
+
+                if (dropdown) { // Only add listener if there's a dropdown
+                    header.addEventListener('click', function() {
+                        // Close other open dropdowns
+                        navItems.forEach(otherItem => {
+                            const otherDropdown = otherItem.querySelector('.content-dropdown');
+                            const otherCaret = otherItem.querySelector('.caret');
+                            if (otherDropdown && otherDropdown !== dropdown && otherDropdown.style.maxHeight !== '0px') {
+                                otherDropdown.style.maxHeight = '0';
+                                otherDropdown.style.padding = '0 15px';
+                                if (otherCaret) otherCaret.style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        if (dropdown.style.maxHeight === '0px' || dropdown.style.maxHeight === '') {
+                            dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+                            dropdown.style.padding = '15px';
+                            if (caret) caret.style.transform = 'rotate(180deg)';
+                        } else {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+
+            // Close dropdowns if clicked outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.content-nav-item')) {
+                    navItems.forEach(item => {
+                        const dropdown = item.querySelector('.content-dropdown');
+                        const caret = item.querySelector('.caret');
+                        if (dropdown) {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+        });
+
+        // JavaScript for scroll-reveal animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <=
+                    (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('active');
+            };
+
+            const hideScrollElement = (element) => {
+                element.classList.remove('active');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) { // Adjust dividend for when it activates
+                        displayScrollElement(el);
+                    } else {
+                        // Optionally hide element if scrolled out of view upwards
+                        // hideScrollElement(el);
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', handleScrollAnimation);
+            // Run on load to check elements already in view
+            handleScrollAnimation();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Amuj Softwares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Basic styling for the layout (consistent with index.html) */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light background */
+            color: #333;
+        }
+
+        /* --- Content Navigation Styles (Copied from index.html for consistency) --- */
+        .content-nav {
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center; /* Center items */
+            gap: 30px; /* Space between navigation items */
+            position: relative; /* For absolute positioning of dropdowns */
+            z-index: 1000; /* Ensure nav is above other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .content-nav-item {
+            position: relative; /* For dropdown positioning */
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .content-nav-item-header {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none; /* If it's a link, style accordingly */
+        }
+
+        .content-nav-item-header .caret {
+            margin-left: 8px;
+            transition: transform 0.3s ease; /* Smooth rotation for the caret */
+        }
+
+        .content-dropdown {
+            position: absolute;
+            top: 100%; /* Position right below the header */
+            left: 50%; /* Center the dropdown relative to its parent */
+            transform: translateX(-50%); /* Adjust for perfect centering */
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            overflow: hidden; /* Hide overflowing content during animation */
+            max-height: 0; /* Initially hidden */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Sling animation */
+            padding: 0 15px; /* No padding when closed */
+        }
+
+        .content-dropdown a {
+            color: #333;
+            padding: 10px 0;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap; /* Prevent wrapping */
+            transition: background-color 0.2s ease;
+        }
+
+        .content-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Hover states */
+        .content-nav-item:hover .content-dropdown {
+            max-height: 200px; /* Adjust based on content height */
+            padding: 15px; /* Add padding when open */
+        }
+
+        .content-nav-item:hover .caret {
+            transform: rotate(180deg); /* Rotate caret on hover */
+        }
+        /* --- End Content Navigation Styles --- */
+
+        /* --- Services Page Specific Styles --- */
+        .services-hero {
+            background: linear-gradient(rgba(224, 230, 229, 0.518), rgba(25, 20, 11, 0.723)), url('images/services-bg.jpg') no-repeat center center/cover; /* Teal gradient */
+            color: rgba(200, 150, 33, 0.793);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            margin: 25px;
+        
+        }
+
+        .services-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out forwards;
+        }
+      
+
+        .services-hero p {
+            font-size: 1.5em;
+            color: #decb22ce;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .service-categories {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #dbfbed92; /* Lighter background for sections */
+        }
+
+        .service-categories h2 {
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            color: #007bff; /* Primary blue for main headings */
+            position: relative;
+            display: inline-block;
+        }
+        .p21{
+            color: #007bff;
+            font-size: 1.6em;
+        }
+  
+     
+        .service-categories h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
+
+        .category-section {
+            margin-bottom: 70px;
+        }
+
+        .category-section h3 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #630d98ab; /* Dark grey for category headings */
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ced4da;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: rgba(252, 252, 252, 0.995);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 150, 136, 0.1); /* Subtle border matching hero */
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card .icon {
+            font-size: 3.5em;
+            color: #de5e19; /* Primary blue for icons */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .service-card h4 {
+            font-size: 1.8em;
+            color: #212529;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .service-card p {
+            font-size: 1em;
+            color: #141b23d6;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Allow paragraph to take space */
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            border-top: 1px dashed white;
+            padding-top: 20px;
+        }
+
+        .service-card ul li {
+            margin-bottom: 8px;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.9em;
+        }
+
+        .service-card ul li i {
+            margin-right: 10px;
+            color: #007bff; /* Icon color */
+            font-size: 1.1em;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            margin-top: 4px; /* Align icon better with text */
+        }
+
+        .service-card .button {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.05em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+        }
+
+        .service-card .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .call-to-action-bottom {
+            background-color: #007bff; /* Primary blue background */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .call-to-action-bottom h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .call-to-action-bottom p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .call-to-action-bottom .button {
+            background-color: #28a745; /* Green button for CTA */
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .call-to-action-bottom .button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer Styles (Copied from index.html for consistency) --- */
+        footer {
+            background-color: #212529; /* Darker background for a more substantial footer */
+            color: #f8f9fa; /* Light text color */
+            padding: 40px 20px; /* More padding */
+            text-align: center;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: space-around; /* Distribute items with space around them */
+            align-items: flex-start; /* Align items to the top of the flex container */
+            gap: 30px; /* Gap between footer columns */
+            box-sizing: border-box; /* Include padding in element's total width/height */
+        }
+
+        .footer-section {
+            flex: 1; /* Allow sections to grow */
+            min-width: 250px; /* Minimum width for each section before wrapping */
+            max-width: 30%; /* Max width for each section */
+            text-align: left; /* Align text within sections to the left */
+        }
+
+        .footer-section h3 {
+            color: #007bff; /* Accent color for headings */
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #007bff; /* Icon color */
+        }
+
+        .footer-social-links {
+            margin-top: 15px;
+        }
+
+        .footer-social-links a {
+            color: #f8f9fa; /* Icon color */
+            font-size: 1.8em; /* Size of social icons */
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: #007bff; /* Hover color for icons */
+        }
+
+        .footer-copyright {
+            width: 100%; /* Take full width */
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+            color: #adb5bd; /* Lighter text for copyright */
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column; /* Stack columns vertically on smaller screens */
+                align-items: center; /* Center items when stacked */
+                text-align: center;
+            }
+            .footer-section {
+                max-width: 90%; /* Allow sections to take more width */
+                margin-bottom: 30px; /* Space between stacked sections */
+            }
+            .footer-section h3 {
+                text-align: center; /* Center headings on mobile */
+            }
+        }
+        /* --- End Footer Styles --- */
+    </style>
+</head>
+<body>
+
+    <nav class="content-nav">
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Services
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="#web-design">Web Design & Dev</a>
+                <a href="#graphics-design">Graphics Design</a>
+                <a href="#digital-marketing">Digital Marketing</a>
+                <a href="#branding-solutions">Branding Solutions</a>
+                <a href="#e-commerce">E-commerce Solutions</a>
+                <a href="services.html">View All Services</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Company
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+              <a href="index.html#home">Home</a>
+                <a href="index.html#our-journey">Our Journey</a>
+                <a href="index.html#meet-the-team">Meet the Team</a>
+                <a href="index.html#our-clients">Our Clients</a>
+                <a href="index.html#office-location">Contact Us</a>
+            </div>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Portfolio
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="portfolio.html">Web design & dev</a>
+                <a href="portfolio.html">Graphics design</a>
+                <a href="portfolio.html">Video & Animation</a>
+                <a href="portfolio.html">Branding</a>
+                <a href="contacts.html">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                Resources
+                <i class="fas fa-caret-down caret"></i>
+            </span>
+            <div class="content-dropdown">
+                <a href="index.html#faq-section">FAQs</a>
+                <a href="#">Blog (Coming Soon)</a>
+            </div>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="booking.html" style="text-decoration: none; color: inherit;">Booking</a>
+            </span>
+        </div>
+
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="web-hosting.html" style="text-decoration: none; color: inherit;">Hosting services</a>
+            </span>
+        </div>
+<div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="contacts.html" style="text-decoration: none; color: inherit;">Contact Us</a>
+            </span>
+        </div>
+        <div class="content-nav-item">
+            <span class="content-nav-item-header">
+                <a href="login.html" style="text-decoration: none; color: inherit;">Login/Sign Up</a>
+            </span>
+        </div>
+    </nav>
+    
+
+        <section class="service-categories">
+            <div class="container">
+                <h2>Our Core Service Areas</h2>
+
+                
+
+                <div id="web-design" class="category-section">
+                    <h3><i class="fas fa-laptop-code"></i> Web Design & Development</h3>
+                    <p class="section-subtitle">Crafting responsive, user-friendly, and high-performing websites tailored to your unique business goals.</p21>
+                    <div class="services-grid">
+                        <div class="service-card scroll-reveal" style="animation-delay: 0s;">
+                            <div class="icon"><i class="fas fa-globe"></i></div>
+                            <h4>Custom Website Design</h4>
+                            <p>Unique, bespoke website designs built from the ground up to reflect your brand's identity and engage your target audience effectively.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> UI/UX Design</li>
+                                <li><i class="fas fa-check-circle"></i> Responsive Layouts</li>
+                                <li><i class="fas fa-check-circle"></i> Brand Integration</li>
+                                <li><i class="fas fa-check-circle"></i> Wireframing & Prototyping</li>
+                            </ul>
+                            <a href="booking.html?service=custom-web-design" class="button">Get a Custom Design</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.2s;">
+                            <div class="icon"><i class="fas fa-code"></i></div>
+                            <h4>Front-end & Back-end Development</h4>
+                            <p>Bringing designs to life with clean, efficient code for visually appealing user interfaces and robust, scalable server-side functionality.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> HTML5, CSS3, JavaScript</li>
+                                <li><i class="fas fa-check-circle"></i> React, Angular, Vue.js</li>
+                                <li><i #f5f5f5="fas fa-check-circle"></i> Python, Node.js, PHP</li>
+                                <li><i class="fas fa-check-circle"></i> Database Integration</li>
+                            </ul>
+                            <a href="booking.html?service=web-development" class="button">Start Development</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.4s;">
+                            <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h4>Mobile App Development</h4>
+                            <p>Designing and building intuitive and high-performance mobile applications for iOS and Android platforms, ensuring a seamless user experience.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Native & Hybrid Apps</li>
+                                <li><i class="fas fa-check-circle"></i> UI/UX for Mobile</li>
+                                <li><i class="fas fa-check-circle"></i> API Integration</li>
+                                <li><i class="fas fa-check-circle"></i> Testing & Deployment</li>
+                            </ul>
+                            <a href="booking.html?service=mobile-app-dev" class="button">Develop Your App</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.6s;">
+                            <div class="icon"><i class="fas fa-server"></i></div>
+                            <h4>Website Maintenance & Support</h4>
+                            <p>Ensuring your website remains secure, fast, and up-to-date with regular updates, backups, security checks, and technical support.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Security Monitoring</li>
+                                <li><i class="fas fa-check-circle"></i> Performance Optimization</li>
+                                <li><i class="fas fa-check-circle"></i> Content Updates</li>
+                                <li><i class="fas fa-check-circle"></i> Bug Fixes & Troubleshooting</li>
+                            </ul>
+                            <a href="booking.html?service=website-maintenance" class="button">Get Maintenance Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="graphics-design" class="category-section">
+                    <h3><i class="fas fa-palette"></i> Graphics Design</h3>
+                    <p class="section-subtitle">Creating stunning visual assets that capture attention and communicate your brand's message effectively.</p>
+                    <div class="services-grid">
+                        <div class="service-card scroll-reveal" style="animation-delay: 0s;">
+                            <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                            <h4>Logo & Brand Identity Design</h4>
+                            <p>Crafting unique and memorable logos that form the foundation of your brand's visual identity, complemented by comprehensive brand guidelines.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Logo Concepts</li>
+                                <li><i class="fas fa-check-circle"></i> Color Palettes</li>
+                                <li><i class="fas fa-check-circle"></i> Typography Selection</li>
+                                <li><i class="fas fa-check-circle"></i> Usage Guidelines</li>
+                            </ul>
+                            <a href="booking.html?service=logo-brand-identity" class="button">Design Your Brand</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.2s;">
+                            <div class="icon"><i class="fas fa-print"></i></div>
+                            <h4>Print Design (Brochures, Flyers, Business Cards)</h4>
+                            <p>Designing high-quality print materials that leave a lasting impression, from corporate brochures to striking flyers and professional business cards.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Marketing Collateral</li>
+                                <li><i class="fas fa-check-circle"></i> Stationery Design</li>
+                                <li><i class="fas fa-check-circle"></i> Print-Ready Files</li>
+                                <li><i class="fas fa-check-circle"></i> Large Format Design</li>
+                            </ul>
+                            <a href="booking.html?service=print-design" class="button">Get Print Design</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.4s;">
+                            <div class="icon"><i class="fas fa-share-alt"></i></div>
+                            <h4>Social Media Graphics</h4>
+                            <p>Creating engaging and on-brand visuals optimized for various social media platforms to boost your online presence and audience interaction.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Post & Story Graphics</li>
+                                <li><i class="fas fa-check-circle"></i> Banner Ads</li>
+                                <li><i class="fas fa-check-circle"></i> Profile & Cover Photos</li>
+                                <li><i class="fas fa-check-circle"></i> Infographics</li>
+                            </ul>
+                            <a href="booking.html?service=social-media-graphics" class="button">Enhance Social Media</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.6s;">
+                            <div class="icon"><i class="fas fa-images"></i></div>
+                            <h4>Illustration & Icon Design</h4>
+                            <p>Developing custom illustrations and iconic graphics that add a unique visual flair to your website, marketing materials, or applications.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Custom Vector Art</li>
+                                <li><i class="fas fa-check-circle"></i> Explainer Illustrations</li>
+                                <li><i class="fas fa-check-circle"></i> Infographic Elements</li>
+                                <li><i class="fas fa-check-circle"></i> UI Icon Sets</li>
+                            </ul>
+                            <a href="booking.html?service=illustration-icon" class="button">Order Custom Art</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="digital-marketing" class="category-section">
+                    <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                    <p class="section-subtitle">Driving traffic, increasing conversions, and boosting your online visibility through strategic digital campaigns.</p>
+                    <div class="services-grid">
+                        <div class="service-card scroll-reveal" style="animation-delay: 0s;">
+                            <div class="icon"><i class="fas fa-search-dollar"></i></div>
+                            <h4>Search Engine Optimization (SEO)</h4>
+                            <p>Improving your website's ranking on search engines to attract more organic traffic and increase your online presence.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Keyword Research</li>
+                                <li><i class="fas fa-check-circle"></i> On-Page SEO</li>
+                                <li><i class="fas fa-check-circle"></i> Off-Page SEO (Link Building)</li>
+                                <li><i class="fas fa-check-circle"></i> Technical SEO Audit</li>
+                            </ul>
+                            <a href="booking.html?service=seo" class="button">Boost SEO</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.2s;">
+                            <div class="icon"><i class="fas fa-ad"></i></div>
+                            <h4>Pay-Per-Click (PPC) Advertising</h4>
+                            <p>Managing effective paid advertising campaigns on platforms like Google Ads and social media to generate immediate leads and sales.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Campaign Strategy</li>
+                                <li><i class="fas fa-check-circle"></i> Ad Creation & Optimization</li>
+                                <li><i class="fas fa-check-circle"></i> Bid Management</li>
+                                <li><i class="fas fa-check-circle"></i> Performance Reporting</li>
+                            </ul>
+                            <a href="booking.html?service=ppc" class="button">Run PPC Campaigns</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.4s;">
+                            <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
+                            <h4>Email Marketing Campaigns</h4>
+                            <p>Designing and executing engaging email campaigns to nurture leads, retain customers, and promote your products or services.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Newsletter Design</li>
+                                <li><i class="fas fa-check-circle"></i> Audience Segmentation</li>
+                                <li><i class="fas fa-check-circle"></i> Automation Setup</li>
+                                <li><i class="fas fa-check-circle"></i> A/B Testing</li>
+                            </ul>
+                            <a href="booking.html?service=email-marketing" class="button">Launch Email Campaigns</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="branding-solutions" class="category-section">
+                    <h3><i class="fas fa-bezier-curve"></i> Branding Solutions</h3>
+                    <p class="section-subtitle">Developing a strong, consistent, and recognizable brand presence across all touchpoints.</p>
+                    <div class="services-grid">
+                        <div class="service-card scroll-reveal" style="animation-delay: 0s;">
+                            <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                            <h4>Brand Strategy & Positioning</h4>
+                            <p>Defining your brand's unique values, mission, vision, and target audience to create a strategic foundation for all communications.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Market Research</li>
+                                <li><i class="fas fa-check-circle"></i> Brand Messaging</li>
+                                <li><i class="fas fa-check-circle"></i> Competitor Analysis</li>
+                                <li><i class="fas fa-check-circle"></i> Audience Definition</li>
+                            </ul>
+                            <a href="booking.html?service=brand-strategy" class="button">Develop Strategy</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.2s;">
+                            <div class="icon"><i class="fas fa-book-open"></i></div>
+                            <h4>Brand Guideline Development</h4>
+                            <p>Creating comprehensive brand books that document your logo usage, color palettes, typography, imagery, and tone of voice for consistent application.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Visual Identity Manual</li>
+                                <li><i class="fas fa-check-circle"></i> Usage Examples</li>
+                                <li><i class="fas fa-check-circle"></i> Do's & Don'ts</li>
+                                <li><i class="fas fa-check-circle"></i> Digital Assets</li>
+                            </ul>
+                            <a href="booking.html?service=brand-guidelines" class="button">Create Guidelines</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <div id="e-commerce" class="category-section">
+                    <h3><i class="fas fa-shopping-cart"></i> E-commerce Solutions</h3>
+                    <p class="section-subtitle">Building robust and secure online stores that drive sales and provide seamless shopping experiences for your customers.</p>
+                    <div class="services-grid">
+                        <div class="service-card scroll-reveal" style="animation-delay: 0s;">
+                            <div class="icon"><i class="fas fa-store"></i></div>
+                            <h4>Online Store Development</h4>
+                            <p>Designing and developing comprehensive e-commerce websites with product listings, shopping carts, secure payment gateways, and inventory management.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Shopify, WooCommerce, Custom</li>
+                                <li><i class="fas fa-check-circle"></i> Product & Inventory Setup</li>
+                                <li><i class="fas fa-check-circle"></i> Payment Gateway Integration</li>
+                                <li><i class="fas fa-check-circle"></i> Shipping & Tax Configuration</li>
+                            </ul>
+                            <a href="booking.html?service=e-commerce-dev" class="button">Build My Store</a>
+                        </div>
+                        <div class="service-card scroll-reveal" style="animation-delay: 0.2s;">
+                            <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>E-commerce Security & Optimization</h4>
+                            <p>Ensuring your online store is secure from threats and optimized for speed and performance to provide a smooth customer journey.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> SSL Implementation</li>
+                                <li><i class="fas fa-check-circle"></i> Fraud Prevention</li>
+                                <li><i class="fas fa-check-circle"></i> Performance Audits</li>
+                                <li><i class="fas fa-check-circle"></i> Conversion Rate Optimization (CRO)</li>
+                            </ul>
+                            <a href="booking.html?service=e-commerce-security" class="button">Secure My Store</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="call-to-action-bottom">
+            <div class="container">
+                <h2>Ready to Start Your Project?</h2>
+                <p>We're passionate about bringing your ideas to life. Contact us today for a free consultation and let's discuss how we can help your business thrive online.</p>
+                <a href="booking.html" class="button">Request a Free Quote</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> The Mirage, 9th Floor, Westlands, Nairobi, Kenya</p>
+            <p><i class="fas fa-phone-alt"></i> +254 796 812 642 (Main Office)</p>
+            <p><i class="fas fa-mobile-alt"></i> +254 708 466 580 (Sales)</p>
+            <p><i class="fas fa-envelope"></i> info@amujsoftwares.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html#about-us">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="booking.html">Request a Quote</a></li>
+                <li><a href="index.html#faq-section">FAQs</a></li>
+                <li><a href="privacy policy.html">Privacy Policy</a></li> </ul>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h3>Connect With Us</h3>
+            <div class="footer-social-links">
+                <a href="https://twitter.com/amujsoftwares" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com/amujsoftwares" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/amujsoftwares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/amujsoftwares" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/2547XXXXXXXX" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="newsletter-text">Join our newsletter for updates!</p>
+            </div>
+
+        <div class="footer-copyright">
+            © 2025 Amujsoftwares. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for dropdown functionality (consistent with index.html)
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.content-nav-item');
+
+            navItems.forEach(item => {
+                const header = item.querySelector('.content-nav-item-header');
+                const dropdown = item.querySelector('.content-dropdown');
+                const caret = item.querySelector('.caret');
+
+                if (dropdown) { // Only add listener if there's a dropdown
+                    header.addEventListener('click', function() {
+                        // Close other open dropdowns
+                        navItems.forEach(otherItem => {
+                            const otherDropdown = otherItem.querySelector('.content-dropdown');
+                            const otherCaret = otherItem.querySelector('.caret');
+                            if (otherDropdown && otherDropdown !== dropdown && otherDropdown.style.maxHeight !== '0px') {
+                                otherDropdown.style.maxHeight = '0';
+                                otherDropdown.style.padding = '0 15px';
+                                if (otherCaret) otherCaret.style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        if (dropdown.style.maxHeight === '0px' || dropdown.style.maxHeight === '') {
+                            dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+                            dropdown.style.padding = '15px';
+                            if (caret) caret.style.transform = 'rotate(180deg)';
+                        } else {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+
+            // Close dropdowns if clicked outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.content-nav-item')) {
+                    navItems.forEach(item => {
+                        const dropdown = item.querySelector('.content-dropdown');
+                        const caret = item.querySelector('.caret');
+                        if (dropdown) {
+                            dropdown.style.maxHeight = '0';
+                            dropdown.style.padding = '0 15px';
+                            if (caret) caret.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            });
+        });
+
+        // JavaScript for scroll-reveal animation (copied from web-hosting.html)
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <=
+                    (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('active');
+            };
+
+            const hideScrollElement = (element) => {
+                element.classList.remove('active');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) { // Adjust dividend for when it activates
+                        displayScrollElement(el);
+                    } else {
+                        // Optionally hide element if scrolled out of view upwards
+                        // hideScrollElement(el);
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', handleScrollAnimation);
+            // Run on load to check elements already in view
+            handleScrollAnimation();
+        });
+    </script>
+</body>
+</html>
